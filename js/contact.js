@@ -11,7 +11,13 @@ function submitWithJS() {
 
     localStorage.setItem('formDataJS', JSON.stringify(formData));
 
-    wi
+    window.location.href = 'form-data.html';
+}
+
+new Vue({
+    el: '#app',
+    data: {
+        name: '',
         email: '',
         message: ''
     },
