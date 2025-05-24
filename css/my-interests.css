@@ -1,0 +1,258 @@
+/* =======================
+   Global
+======================= */
+body {
+    color: white;
+    background-color: #121212; /* Optional: gives a Spotify-like dark background */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for general layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* =======================
+   Steam API Styles
+======================= */
+#gamesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#gamesList div {
+    flex-basis: calc(33% - 20px);
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    transition: box-shadow 0.2s ease;
+}
+
+#gamesList div:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* =======================
+   YouTube API Styles (if still used)
+======================= */
+.video-card {
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    flex-basis: 25%; 
+    box-sizing: border-box; 
+}
+
+.video-card img {
+    width: 100%;
+    height: auto;
+}
+
+.video-card a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+/* =======================
+   Spotify API Styles
+======================= */
+
+/* The container in your HTML that holds the Spotify sections */
+#spotifyContent {
+    margin-top: 20px;
+}
+
+/* Artists list (3 columns, similar to tracks) */
+.artists-list {
+    display: flex;
+    flex-wrap: wrap;       /* allow wrapping to multiple rows */
+    gap: 20px;             /* space between artist cards */
+    justify-content: center; /* center them horizontally */
+}
+
+/* Tracks list (3 columns) */
+.tracks-list {
+    display: flex;
+    flex-wrap: wrap;       /* allow wrapping to multiple rows */
+    gap: 20px;             /* space between track cards */
+    justify-content: center; /* center them horizontally */
+}
+
+/* Card layout for each artist */
+.artist-card {
+    flex: 0 0 calc(33.333% - 20px); /* each card takes ~1/3 of the container minus the gap */
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease;
+}
+
+.artist-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Artist image as a circle */
+.artist-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Track card layout (3 columns) */
+.track-card {
+    flex: 0 0 calc(33.333% - 20px); /* each card takes ~1/3 of the container minus the gap */
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease;
+}
+
+.track-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Album cover is square */
+.track-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+/* Info container inside each card (title, artist, album, etc.) */
+.track-card div,
+.artist-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Headings inside cards */
+.track-card h4,
+.artist-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+}
+
+/* Paragraphs inside cards */
+.track-card p,
+.artist-card p {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Subtle spacing for certain paragraphs */
+.track-card p:not(:first-child),
+.artist-card p:not(:first-child) {
+    margin-top: 5px;
+}
+
+/* Audio preview styling */
+.track-card audio {
+    margin-top: 5px;
+    outline: none;
+}
+#spotifyContent section h3 {
+    text-align: center;
+    margin-bottom: 20px; 
+    margin-top: 20px; 
+
+  }
+/* =======================
+   TMDB API Styles
+======================= */
+#moviesSection h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.movie-card {
+    flex: 0 0 calc(33.333% - 20px);
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.movie-card img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.movie-info p {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.movie-info p:not(:first-child) {
+    margin-top: 5px;
+}
+
+.movie-rating {
+    color: #1db954;
+    font-weight: bold;
+}
+

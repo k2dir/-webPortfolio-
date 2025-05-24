@@ -1,0 +1,84 @@
+
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6064f4;
+    color: #dbdee1;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #4854c4;
+}
+
+.login-container {
+    font-family: sans-serif;
+    background-color: #313338;
+    color: #f0f1f3;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-container .form-group {
+    margin-bottom: 10px;
+}
+
+.login-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b3b8bf;
+}
+
+.login-container .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #1e1f22;
+    color: #ffffff;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #6064f4;
+    color: white;
+    cursor: pointer;
+}
+.login-container button:hover {
+    background-color: #4854c4;
+}
+
+.required {
+    color: #e33e41;
+  }
+
+  /*Responsive styles*/
+
+@media (max-width: 1023px) {
+    .login-container {
+        width: 60%; 
+        max-width: 400px;
+        padding: 20px; 
+    }
+
+    .back-button {
+        top: 20px; 
+        left: 20px; 
+    }
+}

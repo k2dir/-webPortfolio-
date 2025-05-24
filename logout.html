@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' type='text/css' href='css/login-successful.css'>
+    <script>
+        setTimeout(function() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = document.referrer || 'index.html';
+        }, 2000);
+    </script>
+</head>
+<body>
+    <p class='success-message'>You have been logged out. Redirecting...</p>
+</body>
+</html>
