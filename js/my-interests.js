@@ -20,11 +20,19 @@ window.addEventListener('load', function() {
 
     let spotifyAccessToken = getAccessTokenFromUrl();
     if (spotifyAccessToken) {
+        // Save token to sessionStorage to persist it
+        sessionStorage.setItem('spotify_access_token', spotifyAccessToken);
         window.history.replaceState({}, document.title, window.location.pathname);
+    } else {
+        // Try to get token from sessionStorage if it exists
+        spotifyAccessToken = sessionStorage.getItem('spotify_access_token');
     }
 
     if (!spotifyAccessToken) {
-        window.location = getSpotifyAuthUrl();
+        // Only redirect if we haven't just returned from auth
+        if (!window.location.hash.includes('access_token')) {
+            window.location = getSpotifyAuthUrl();
+        }
         return;
     } else {
         fetchSpotifyData(spotifyAccessToken);
@@ -130,10 +138,15 @@ window.addEventListener('load', function() {
     const TMDB_API_BASE = 'https://api.themoviedb.org/3';
 
     function fetchMovieData() {
+        const moviesList = document.getElementById('moviesList');
+        if (!moviesList) return;
+        
+        // Clear existing content
+        moviesList.innerHTML = '';
+        
         fetch(`${TMDB_API_BASE}/movie/popular?api_key=${TMDB_API_KEY}&language=en-US&page=1`)
             .then(response => response.json())
             .then(data => {
-                const moviesList = document.getElementById('moviesList');
                 const movies = data.results.slice(0, 6); 
                 movies.forEach(movie => {
                     const movieCard = document.createElement('div');
