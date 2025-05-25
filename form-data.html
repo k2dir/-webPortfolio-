@@ -9,6 +9,7 @@
             <h1>Form Submission Details</h1>
             <p>Your name is: <span id="name"></span></p>
             <p>Your email is: <span id="email"></span></p>
+            <p>Your phone is: <span id="phone"></span></p>
             <p>Your message: <span id="message"></span></p>
             <p>Thank you for contacting us!</p>
             <button onclick="window.location.href='index.html'">Go to Home Page</button>
@@ -19,6 +20,7 @@
         if (formData) {
             document.getElementById('name').textContent = formData.name;
             document.getElementById('email').textContent = formData.email;
+            document.getElementById('phone').textContent = formData.phone;
             document.getElementById('message').textContent = formData.message;
         }
     </script>
